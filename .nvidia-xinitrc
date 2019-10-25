@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -gt 0 ]; then
+  $*
+else
+  exec i3
+  # Alternatively, you can also use xfce4:
+  # xfce4-session
+fi
