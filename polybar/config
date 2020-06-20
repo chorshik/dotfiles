@@ -60,10 +60,12 @@ font-0 = Hack:pixelsize=9;3
 font-1 = "Wuncon Siji:pixelsize=10;3"
 font-2 = FontAwesome5Free:style=Solid:pixelsize=10;3
 font-3 = FontAwesome5Brands:style=Solid:pixelsize=10;3
+font-4 = Noto Sans CJK JP:style=Medium:pixelsize=9;1
 
 modules-left = i3
 modules-center = date
-modules-right = sp1 filesystem sp2 xkeyboard sp2 volume sp2 wlan sp2 battery sp1
+;modules-right = sp1 filesystem sp2 xkeyboard sp2 volume sp2 openvpn sp2 network sp2 battery sp1
+modules-right = sp1 filesystem sp2 xkeyboard sp2 volume sp2 network sp2 battery sp1
 
 tray-position = no
 tray-padding = 0
@@ -250,7 +252,7 @@ format-padding = 1
 
 label-maxlen = 60
 
-[module/wlan]
+[module/network]
 type = internal/network
 interface = wlp7s0
 interval = 3.0
@@ -259,20 +261,20 @@ format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %essid%
 
-format-disconnected = " "
+format-disconnected-prefix = " "
+format-disconnected-prefix-foreground = ${colors.foreground-alt}
 label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/openvpn]
 type = internal/network
 interface = tun0
 interval = 3.0
 
-format-connected-prefix = "tun0: "
+format-connected-prefix = "嬨 "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = on
 
-format-disconnected-prefix = "tun0: "
+format-disconnected-prefix = "嬨 "
 format-disconnected-prefix-foreground = ${colors.foreground-alt}
 label-disconnected = off
 
@@ -282,7 +284,7 @@ interface = eth0
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
@@ -318,7 +320,8 @@ interval = 25
 
 mount-0 = /
 
-;           📸📸📸⚡      
+;      ⚡           鷺廬旅 聯輦囹阮漢賓嬨慎 睊
+; 﫽 﫾 ﰐ  ﰑ ﰒ ﰔ ﱮ ﴣ
 
 label-mounted = " %free%"
 label-mounted-background = ${colors.background-alt}

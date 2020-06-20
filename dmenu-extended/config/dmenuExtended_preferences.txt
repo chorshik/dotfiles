@@ -18,7 +18,9 @@
     "include_items": [
         "reboot",
         "~/.config",
-        "phpstorm"
+        "phpstorm",
+        "goland",
+        "/bin/pgManage"
     ],
     "indicator_alias": "",
     "indicator_edit": "--",

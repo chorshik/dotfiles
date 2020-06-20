@@ -74,7 +74,7 @@
     startup_notification = false
     
     # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst: -y 449 -x 450 -nf '#888888' -nb '#1D1F21' -sf '#ffffff' -sb '#1D1F21' -w 1000 -dim 0.2 -l 10 -fn 'Hack-15'  
+    dmenu = /usr/bin/dmenu -y 449 -x 461 -w 1000 -dim 0.2 -l 10 -fn 'Hack-15' -p dunst
     
     # Align icons left/right/off
     icon_position = left
@@ -99,7 +99,7 @@
     history = ctrl+grave
     
    # Context menu.
-    context = ctrl+shift+period
+    context = ctrl+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.

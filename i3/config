@@ -13,7 +13,8 @@ set $mod Mod4
 set $file ranger
 set $term urxvt
 set $termdaemonmod urxvtc
-set $launcher j4-dmenu-desktop --term=urxvtc --usage-log=.config/j4dmenu.log --dmenu="dmenu -i -y 449 -x 461 -nf '#888888' -nb '#1D1F21' -sf '#ffffff' -sb '#1D1F21' -w 1000 -dim 0.2 -l 10 -fn 'Hack-14' -p open:"
+set $launcher dmenu_extended_run
+#set $launcher j4-dmenu-desktop --term=urxvtc --usage-log=.config/j4dmenu.log --dmenu="dmenu -i -y 449 -x 461 -nf '#888888' -nb '#1D1F21' -sf '#ffffff' -sb '#1D1F21' -w 1000 -dim 0.2 -l 10 -fn 'Hack-14' -p open:"
 set $shell dmenu_run -i -y 449 -x 461 -w 1000 -dim 0.2 -l 10 -fn 'Hack-13'
 set $cpu htop
 
@@ -53,6 +54,19 @@ for_window [window_type="dialog"] scratchpad show
 #urxvt
 for_window [instance="__scratchpad"] move scratchpad 
 for_window [instance="__scratchpad"] border pixel 0
+#calculator
+for_window [instance="gnome-calculator"] floating enable
+#calendar
+#firefox
+for_window [class="firefox"] move to workspace $ws3
+#Thunderbird
+for_window [class="Thunderbird"] move to workspace $ws6
+#spotify
+for_window [class="Spotify"] move to workspace $ws5
+#htop
+for_window [title="htop"] move to workspace $ws10
+
+
 #windows
 for_window [window_type="dialog"] border pixel 1
 for_window [window_type="normal"] border pixel 0
@@ -120,7 +134,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+c focus child
+bindsym $mod+c focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -199,7 +213,7 @@ bindsym $mod+r mode "resize"
 
 # scratchpad
 bindsym $mod+Shift+grave move scratchpad 
-bindsym $mod+grave scratchpad show
+bindsym $mod+grave scratchpad show, resize set 1366 750, move position center
 
 # scratchpad program
 bindsym $mod+F1 [class="^TelegramDesktop$"] scratchpad show
@@ -330,17 +344,17 @@ exec --no-startup-id urxvt -name __scratchpad
 #bindsym Mod1+m exec --no-startup-id urxvt -name scratchpad -e pass
 ##########
 
-exec --no-startup-id compton 
+exec --no-startup-id picom
 exec --no-startup-id dunst
 #exec --no-startup-id kbdd &
 exec $term -e kbdd
 
 # Auto mount
 exec --no-startup-id udiskie --use-udisks2 --no-automount  
-#--no-notify --tray 
+#--no-automount --no-notify --tray 
 
 # Autolock after 10 minutes
-exec xautolock -corners --00 -locker /usr/bin/i3lockcustom.sh -time 6 &
+#exec xautolock -corners --00 -locker /usr/bin/i3lockcustom.sh -time 6 &
 
 # laucher feature 
 #bindsym $mod+Control+Return exec ssh_menu.sh '$term -s -e ssh'
